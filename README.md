@@ -44,15 +44,56 @@ npm run deploy
 1. 前往 [Notion Integrations](https://www.notion.so/my-integrations)
 2. 創建新的 Integration
 3. 複製 Integration Token
-4. 在你的知識庫頁面授權 Integration
+4. 創建或選擇一個 Notion 資料庫作為知識庫
+5. 複製資料庫 ID（從資料庫 URL 中獲取）
+6. 在你的知識庫頁面授權 Integration
 
-### 3. 配置 Claude 客戶端
+### 2.1 部署到 Cloudflare Workers（可選）
+
+如果要部署到 Cloudflare Workers：
+
+```bash
+# 設置環境變數
+wrangler secret put NOTION_TOKEN        # 你的 Notion Integration Token
+wrangler secret put NOTION_DATABASE_ID  # 你的 Notion 資料庫 ID
+
+# 部署
+wrangler deploy
+```
+
+### 3. 配置 AI 客戶端
 
 #### Claude Desktop
-複製 `config/claude-desktop.json` 到 `~/.claude_desktop_config.json`
+```bash
+# 複製配置檔案
+cp config/claude-desktop.json ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
 
 #### Claude Code
-複製 `config/claude-code.json` 到你的專案 `.claude/settings.json`
+```bash
+# 使用 claude mcp add 命令（推薦）
+claude mcp add notion-knowledge node ./src/mcp-server.js
+
+# 或手動配置：將以下內容添加到 ~/.claude/settings.json
+{
+  "mcpServers": {
+    "notion-knowledge": {
+      "command": "node",
+      "args": ["<path-to-project>/src/mcp-server.js"]
+    }
+  }
+}
+```
+
+#### Gemini CLI
+```bash
+# 安裝 Gemini CLI
+npm install -g @google/gemini-cli
+
+# 配置 MCP 服務器
+cp config/gemini-cli-settings.json ~/.gemini/settings.json
+# 或將 notion-knowledge 配置合併到現有的 ~/.gemini/settings.json
+```
 
 ## 📖 使用指南
 

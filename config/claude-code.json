@@ -3,10 +3,7 @@
     "servers": {
       "notion-knowledge": {
         "command": "node",
-        "args": [
-          "-e",
-          "const https = require('https'); const data = JSON.stringify({ method: process.argv[2], params: JSON.parse(process.argv[3] || '{}') }); const req = https.request('https://notion-knowledge.etjang10.workers.dev/call', { method: 'POST', headers: { 'Content-Type': 'application/json' } }, res => { let body = ''; res.on('data', chunk => body += chunk); res.on('end', () => { try { const result = JSON.parse(body); console.log(result.result || body); } catch(e) { console.log(body); } }); }); req.on('error', err => console.error('MCP連接錯誤:', err.message)); req.write(data); req.end();"
-        ]
+        "args": ["./src/mcp-server.js"]
       }
     }
   },

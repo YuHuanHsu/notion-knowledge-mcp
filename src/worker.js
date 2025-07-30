@@ -4,7 +4,7 @@
 class NotionMCPServer {
   constructor(env) {
     this.notionToken = env.NOTION_TOKEN;
-    this.databaseId = "0648189f-8545-4fca-9fc2-f2671d1c6cf6"; // 正確的資料庫 ID
+    this.databaseId = env.NOTION_DATABASE_ID || "0648189f-8545-4fca-9fc2-f2671d1c6cf6"; // 可配置的資料庫 ID
     this.headers = {
       'Authorization': `Bearer ${this.notionToken}`,
       'Content-Type': 'application/json',

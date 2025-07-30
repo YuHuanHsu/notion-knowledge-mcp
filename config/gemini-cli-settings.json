@@ -1,4 +1,6 @@
 {
+  "theme": "Default",
+  "selectedAuthType": "oauth-personal",
   "mcpServers": {
     "notion-knowledge": {
       "command": "node",

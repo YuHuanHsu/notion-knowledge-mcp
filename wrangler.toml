@@ -1,4 +1,4 @@
-name = "notion-knowledge"
+name = "notion-knowledge-mcp"
 main = "src/worker.js"
 compatibility_date = "2024-07-01"
 compatibility_flags = ["nodejs_compat"]
@@ -7,7 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 # NOTION_TOKEN 通過 wrangler secret 安全設定
 
 [env.production]
-name = "notion-knowledge"
+name = "notion-knowledge-mcp"
 
 [env.development]
 name = "notion-knowledge-dev"
