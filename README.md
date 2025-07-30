@@ -34,6 +34,7 @@ npx wrangler login
 
 # 設定環境變數
 npx wrangler secret put NOTION_TOKEN
+npx wrangler secret put NOTION_DATABASE_ID
 
 # 部署
 npm run deploy
@@ -141,8 +142,8 @@ npm run deploy
 ## 📝 配置
 
 ### 環境變數
-- `NOTION_TOKEN` - Notion Integration Token
-- Database ID: `0648189f-8545-4fca-9fc2-f2671d1c6cf6` (已內建)
+- `NOTION_TOKEN` - Notion Integration Token (必須)
+- `NOTION_DATABASE_ID` - Notion 資料庫 ID (必須)
 
 ### 自定義配置
 編輯 `wrangler.toml` 來自定義部署設定
