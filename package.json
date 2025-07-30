@@ -1,0 +1,34 @@
+{
+  "name": "notion-knowledge-mcp",
+  "version": "1.0.0",
+  "description": "Notion Knowledge MCP Server for Claude - Cloudflare Workers 部署",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "wrangler deploy --env production",
+    "test": "node scripts/test.js",
+    "setup": "chmod +x scripts/setup.sh && ./scripts/setup.sh"
+  },
+  "keywords": [
+    "notion",
+    "mcp", 
+    "claude",
+    "knowledge",
+    "cloudflare",
+    "workers"
+  ],
+  "author": "etjang10",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etjang10/notion-knowledge-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/etjang10/notion-knowledge-mcp/issues"
+  },
+  "homepage": "https://github.com/etjang10/notion-knowledge-mcp#readme",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

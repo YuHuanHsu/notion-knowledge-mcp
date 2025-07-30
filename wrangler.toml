@@ -1,0 +1,13 @@
+name = "notion-knowledge"
+main = "src/worker.js"
+compatibility_date = "2024-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# 你的資料庫 ID 直接寫在代碼中，因為它不是敏感信息
+# NOTION_TOKEN 通過 wrangler secret 安全設定
+
+[env.production]
+name = "notion-knowledge"
+
+[env.development]
+name = "notion-knowledge-dev"
